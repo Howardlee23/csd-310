@@ -18,6 +18,8 @@ client = MongoClient(url)
 #connect to the database 
 db = client.pytech
 
+insert_one() 
+
 #show the collection 
 print("--Pytech Collection List --")
 print(db.list_collection_names())
