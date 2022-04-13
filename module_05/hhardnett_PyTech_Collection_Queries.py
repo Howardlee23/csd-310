@@ -2,9 +2,8 @@
 Howard Hardnett
 04/11/2022
 Assignment: PyTech Collection Queries
-Description: The purpose of this assignment is to create new 
-             documents into the pytech collection and querying
-             for the existing documents.  
+Description: The purpose of this assignment it to use the find command 
+             to see the documents in the collection.  
 """
 
 # import statements 
@@ -17,18 +16,21 @@ url = "mongodb+srv://admin:admin@cluster0.l5ram.mongodb.net/pytech?retryWrites=t
 client = MongoClient(url)
 
 #connect to the database 
-db = client.pytech
+db = client.get_database("pytech")
 
-#insert new document
-
-
+collection = db.get_collection("students")
 
 
+print("--DISPLAYING STUDENTS DOCUMENTS FROM find() QUERY--")
+for all_documents in collection.find():
+    print(all_documents)
 
-#show the collection 
-print("--DISPLAYING STUDENTS DOCUMENTS FROM find() QUERY --")
-print(db.list_collection_names())
+print("\n")
+
+print("--DISPLAYING STUDENT DOCUMENT FROM find_one() QUERY--")
+single_find =collection.find_one()
+print(single_find)
 
 
 # Ends the program
-input("End of program, press any key to continue....")
+#input("End of program, press any key to continue....")
